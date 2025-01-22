@@ -6,7 +6,7 @@ nav {
 	height: 100%;
 	background-color: #111;
 }
-main {
+.main {
 	position: fixed;
 	right: 0;
 	width: 88.1%;
