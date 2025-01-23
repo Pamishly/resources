@@ -309,6 +309,6 @@ iframe[seamless]{
 }
 .codeblock p {
     text-align: left;
-    padding-top: 15px;
+    padding: 15px;
     color:rgb(255, 89, 0);
 }
