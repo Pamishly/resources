@@ -32,7 +32,7 @@ main {
 	height: 100%;
 	background: url("https://github.com/Pamishly/PamishlysPlayPlace/blob/main/Background.png?raw=true");
 	overflow: auto;
-	padding: 10px;
+	padding: 40px;
     color: cyan;
 }
 @media screen and (max-width: 1800px){
@@ -135,15 +135,6 @@ input[type="radio"] {
 }
 #ppp:checked + li {
 	height: 0px;
-}
-#preferences:checked + li {
-    height: 70px;
-}
-#beamng:checked + li {
-    height: 178px;
-}
-#kithack:checked + li {
-    height: 106px;
 }
 #projects:checked + li {
     height: 70px;
