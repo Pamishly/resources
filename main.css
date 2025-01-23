@@ -1,39 +1,18 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    display: flex;
-}
-
 .sidebar {
-    width: 200px;
-    height: 100vh;
-    background-color: #136a13;
-    color: #fff;
-    box-sizing: border-box;
+    height: 200px;
+    width: 150px;
     position: fixed;
-}
-
-.content {
-    flex: 1;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-left: 200px;
-    text-align: justify;
-}
-
-.sidebar a {
+    top: 0;
+    right: 0;
+    padding-top: 40px;
+    background-color: lightblue;
+  }
+  .sidebar div {
+    padding: 8px;
+    font-size: 24px;
     display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-}
-
-/* Change background color on hover */
-.sidebar a:hover {
-    background-color: #2980b9;
-}
+  }
+  .body-text {
+    margin-left: 150px;
+    font-size: 18px;
+  }
