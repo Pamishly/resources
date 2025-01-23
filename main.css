@@ -215,7 +215,7 @@ iframe[seamless]{
     padding: 0px;
     overflow: hidden;
 }
-.dwn-button{
+.button{
 	position: relative;
     display: flex;
     flex-flow: column nowrap;
@@ -230,10 +230,10 @@ iframe[seamless]{
     left: 50%;
     transform: translate(-61%,65%);
 }
-.dwn-button:hover {
+.button:hover {
     background: darkcyan;
 }
-.dwn-button p{
+.button p{
 	padding-top: 17px;
 }
 .information{
