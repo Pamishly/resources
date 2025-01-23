@@ -306,5 +306,8 @@ iframe[seamless]{
     margin-right:30%;
     background: rgba(0, 0, 0, 0.5);
     border-radius: 17px;
+}
+.codeblock p {
     text-align: left;
+    padding-top: 15px;
 }
