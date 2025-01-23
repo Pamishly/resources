@@ -301,3 +301,6 @@ iframe[seamless]{
 .functional {
 	color: rgb(0, 255, 106);
 }
+.codeblock {
+    background: rgba(70, 70, 70, 0.5);
+}
