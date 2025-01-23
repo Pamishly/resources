@@ -317,3 +317,6 @@ iframe[seamless]{
 .dollar {
     color:rgb(115, 0, 255);
 }
+.cmd {
+    color: white;
+}
