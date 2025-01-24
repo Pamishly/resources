@@ -54,177 +54,177 @@
             </div>
             <p>Then copy and paste the following into the text editor</p>
             <div class = codeblock class = white>
-                  <pre tabindex="0" style='text-align: left;color: #fff;font-size: medium;font-family: Consolas, Monaco, "border: 0px solid rgb(229, 231, 235);'><code style='text-align: left;color: #fff;font-size: 1em;font-family: Consolas, Monaco, "border: 0px solid rgb(229, 231, 235);'><strong><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">#!/bin/bash</span></strong>
+                  <p>#!/bin/bash</p>
 
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># Variables we need to make things easier later on.</span>
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">CONFIGFS</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;/sys/kernel/config&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">GADGET</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$CONFIGFS</span>/usb_gadget&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">VID</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;0x0525&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">PID</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;0xa4a2&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">SERIAL</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;0123456789&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">MANUF</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);"><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$(</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">hostname</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">)</span></span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">PRODUCT</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;UVC Gadget&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">BOARD</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);"><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$(</span>strings /proc/device-tree/model<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">)</span></span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">UDC</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);"><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">`</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ls</span> /sys/class/udc<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">`</span></span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># will identify the &apos;first&apos; UDC</span>
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># Later on, this function is used to tell the usb subsystem that we want</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># to support a particular format, framesize and frameintervals</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">create_frame</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">(</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">)</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">{</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># Example usage:</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># create_frame &lt;function name&gt; &lt;width&gt; &lt;height&gt; &lt;format&gt; &lt;name&gt; &lt;intervals&gt;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">FUNCTION</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$1</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">WIDTH</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$2</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">HEIGHT</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$3</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">FORMAT</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$4</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">NAME</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$5</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">wdir</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span>functions/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span>/streaming/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FORMAT</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$NAME</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">${HEIGHT}</span>p
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> -p <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$wdir</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$WIDTH</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$wdir</span>/wWidth
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$HEIGHT</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$wdir</span>/wHeight
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$((</span> $WIDTH <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">*</span> $HEIGHT <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">*</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">2</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">))</span></span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$wdir</span>/dwMaxVideoFrameBufferSize
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cat</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&lt;&lt;</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">EOF<span style="color: #fff;border: 0px solid rgb(229, 231, 235);"> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$wdir</span>/dwFrameInterval</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$6</span>
-                        EOF</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">}</span>
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># This function sets up the UVC gadget function in configfs and binds us</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># to the UVC gadget driver.</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">create_uvc</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">(</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">)</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">{</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">CONFIG</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$1</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">FUNCTION</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">=</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$2</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;    Creating UVC gadget functionality : <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span>&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> functions/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span>
-                        
-                            create_frame <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">640</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">480</span> uncompressed u <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;333333
-                        416667
-                        500000
-                        666666
-                        1000000
-                        1333333
-                        2000000
-                        &quot;</span>
-                            create_frame <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1280</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">720</span> uncompressed u <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;1000000
-                        1333333
-                        2000000
-                        &quot;</span>
-                            create_frame <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1920</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1080</span> uncompressed u <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;2000000&quot;</span>
-                            create_frame <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">640</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">480</span> mjpeg m <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;333333
-                        416667
-                        500000
-                        666666
-                        1000000
-                        1333333
-                        2000000
-                        &quot;</span>
-                            create_frame <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1280</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">720</span> mjpeg m <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;333333
-                        416667
-                        500000
-                        666666
-                        1000000
-                        1333333
-                        2000000
-                        &quot;</span>
-                            create_frame <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1920</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1080</span> mjpeg m <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;333333
-                        416667
-                        500000
-                        666666
-                        1000000
-                        1333333
-                        2000000
-                        &quot;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> functions/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span>/streaming/header/h
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> functions/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span>/streaming/header/h
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/uncompressed/u
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/mjpeg/m
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/class/fs
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/header/h
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/class/hs
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/header/h
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/class/ss
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/header/h
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/control
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> header/h
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s header/h class/fs
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s header/h class/ss
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">..</span>/
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># This configures the USB endpoint to allow 3x 1024 byte packets per</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># microframe, which gives us the maximum speed for USB 2.0. Other</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># valid values are 1024 and 2048, but these will result in a lower</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># supportable framerate.</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">2048</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> functions/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span>/streaming_maxpacket
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">ln</span> -s functions/<span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$FUNCTION</span> configs/c.1
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">}</span>
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># This loads the module responsible for allowing USB Gadgets to be</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># configured through configfs, without which we can&apos;t connect to the</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># UVC gadget kernel driver</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Loading composite module&quot;</span>
-                        modprobe libcomposite
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># This section configures the gadget through configfs. We need to</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># create a bunch of files and directories that describe the USB</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># device we want to pretend to be.</span>
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">if</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">[</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">!</span> -d <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$GADGET</span>/g1 <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">]</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">;</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">then</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Detecting platform:&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;  board : <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$BOARD</span>&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;  udc   : <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$UDC</span>&quot;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Creating the USB gadget&quot;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Creating gadget directory g1&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> -p <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$GADGET</span>/g1
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">cd</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$GADGET</span>/g1
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">if</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">[</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$?</span> -ne <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">0</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">]</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">;</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">then</span>
-                                <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Error creating usb gadget in configfs&quot;</span>
-                                <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">exit</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">1</span><span style="color: #fff;border: 0px solid rgb(229, 231, 235);">;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">else</span>
-                                <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;OK&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">fi</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Setting Vendor and Product ID&apos;s&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$VID</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> idVendor
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$PID</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> idProduct
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;OK&quot;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Setting English strings&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> -p strings/0x409
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$SERIAL</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> strings/0x409/serialnumber
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$MANUF</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> strings/0x409/manufacturer
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$PRODUCT</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> strings/0x409/product
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;OK&quot;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Creating Config&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> configs/c.1
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">mkdir</span> configs/c.1/strings/0x409
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Creating functions...&quot;</span>
-                        
-                            create_uvc configs/c.1 uvc.0
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;OK&quot;</span>
-                        
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;Binding USB Device Controller&quot;</span>
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">$UDC</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&gt;</span> UDC
-                            <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">echo</span> <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">&quot;OK&quot;</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">fi</span>
-                        
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># Run uvc-gadget. The -c flag sets libcamera as a source, arg 0 selects</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># the first available camera on the system. All cameras will be listed,</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># you can re-run with -c n to select camera n or -c ID to select via</span>
-                        <span style="color: #fff;border: 0px solid rgb(229, 231, 235);"># the camera ID.</span>
-                        uvc-gadget -c <span style="color: #fff;border: 0px solid rgb(229, 231, 235);">0</span> uvc.0</code></pre>
+                  <p># Variables we need to make things easier later on.</p>
+                  
+                  <p>CONFIGFS=&quot;/sys/kernel/config&quot;<br>
+                  GADGET=&quot;$CONFIGFS/usb_gadget&quot;<br>
+                  VID=&quot;0x0525&quot;<br>
+                  PID=&quot;0xa4a2&quot;<br>
+                  SERIAL=&quot;0123456789&quot;<br>
+                  MANUF=$(hostname)<br>
+                  PRODUCT=&quot;UVC Gadget&quot;<br>
+                  BOARD=$(strings /proc/device-tree/model)<br>
+                  UDC=`ls /sys/class/udc` # will identify the 'first' UDC</p>
+                  
+                  <p># Later on, this function is used to tell the usb subsystem that we want<br>
+                  # to support a particular format, framesize and frameintervals<br>
+                  create_frame() {<br>
+                   # Example usage:<br>
+                   # create_frame &lt;function name&gt; &lt;width&gt; &lt;height&gt; &lt;format&gt; &lt;name&gt; &lt;intervals&gt;</p>
+                  
+                  <p> FUNCTION=$1<br>
+                   WIDTH=$2<br>
+                   HEIGHT=$3<br>
+                   FORMAT=$4<br>
+                   NAME=$5</p>
+                  
+                  <p> wdir=functions/$FUNCTION/streaming/$FORMAT/$NAME/${HEIGHT}p</p>
+                  
+                  <p> mkdir -p $wdir<br>
+                   echo $WIDTH &gt; $wdir/wWidth<br>
+                   echo $HEIGHT &gt; $wdir/wHeight<br>
+                   echo $(( $WIDTH * $HEIGHT * 2 )) &gt; $wdir/dwMaxVideoFrameBufferSize<br>
+                   cat &lt;&lt;EOF &gt; $wdir/dwFrameInterval<br>
+                  $6<br>
+                  EOF<br>
+                  }</p>
+                  
+                  <p># This function sets up the UVC gadget function in configfs and binds us<br>
+                  # to the UVC gadget driver.<br>
+                  create_uvc() {<br>
+                   CONFIG=$1<br>
+                   FUNCTION=$2</p>
+                  
+                  <p> echo &quot; Creating UVC gadget functionality : $FUNCTION&quot;<br>
+                   mkdir functions/$FUNCTION</p>
+                  
+                  <p> create_frame $FUNCTION 640 480 uncompressed u &quot;333333<br>
+                  416667<br>
+                  500000<br>
+                  666666<br>
+                  1000000<br>
+                  1333333<br>
+                  2000000<br>
+                  &quot;<br>
+                   create_frame $FUNCTION 1280 720 uncompressed u &quot;1000000<br>
+                  1333333<br>
+                  2000000<br>
+                  &quot;<br>
+                   create_frame $FUNCTION 1920 1080 uncompressed u &quot;2000000&quot;<br>
+                   create_frame $FUNCTION 640 480 mjpeg m &quot;333333<br>
+                  416667<br>
+                  500000<br>
+                  666666<br>
+                  1000000<br>
+                  1333333<br>
+                  2000000<br>
+                  &quot;<br>
+                   create_frame $FUNCTION 1280 720 mjpeg m &quot;333333<br>
+                  416667<br>
+                  500000<br>
+                  666666<br>
+                  1000000<br>
+                  1333333<br>
+                  2000000<br>
+                  &quot;<br>
+                   create_frame $FUNCTION 1920 1080 mjpeg m &quot;333333<br>
+                  416667<br>
+                  500000<br>
+                  666666<br>
+                  1000000<br>
+                  1333333<br>
+                  2000000<br>
+                  &quot;</p>
+                  
+                  <p> mkdir functions/$FUNCTION/streaming/header/h<br>
+                   cd functions/$FUNCTION/streaming/header/h<br>
+                   ln -s ../../uncompressed/u<br>
+                   ln -s ../../mjpeg/m<br>
+                   cd ../../class/fs<br>
+                   ln -s ../../header/h<br>
+                   cd ../../class/hs<br>
+                   ln -s ../../header/h<br>
+                   cd ../../class/ss<br>
+                   ln -s ../../header/h<br>
+                   cd ../../../control<br>
+                   mkdir header/h<br>
+                   ln -s header/h class/fs<br>
+                   ln -s header/h class/ss<br>
+                   cd ../../../</p>
+                  
+                  <p> # This configures the USB endpoint to allow 3x 1024 byte packets per<br>
+                   # microframe, which gives us the maximum speed for USB 2.0. Other<br>
+                   # valid values are 1024 and 2048, but these will result in a lower<br>
+                   # supportable framerate.<br>
+                   echo 2048 &gt; functions/$FUNCTION/streaming_maxpacket</p>
+                  
+                  <p> ln -s functions/$FUNCTION configs/c.1<br>
+                  }</p>
+                  
+                  <p># This loads the module responsible for allowing USB Gadgets to be<br>
+                  # configured through configfs, without which we can't connect to the<br>
+                  # UVC gadget kernel driver<br>
+                  echo &quot;Loading composite module&quot;<br>
+                  modprobe libcomposite</p>
+                  
+                  <p># This section configures the gadget through configfs. We need to<br>
+                  # create a bunch of files and directories that describe the USB<br>
+                  # device we want to pretend to be.</p>
+                  
+                  <p>if<br>
+                  [ ! -d $GADGET/g1 ]; then<br>
+                   echo &quot;Detecting platform:&quot;<br>
+                   echo &quot; board : $BOARD&quot;<br>
+                   echo &quot; udc : $UDC&quot;</p>
+                  
+                  <p> echo &quot;Creating the USB gadget&quot;</p>
+                  
+                  <p> echo &quot;Creating gadget directory g1&quot;<br>
+                   mkdir -p $GADGET/g1</p>
+                  
+                  <p> cd $GADGET/g1<br>
+                   if<br>
+                  [ $? -ne 0 ]; then<br>
+                   echo &quot;Error creating usb gadget in configfs&quot;<br>
+                   exit 1;<br>
+                   else<br>
+                   echo &quot;OK&quot;<br>
+                   fi</p>
+                  
+                  <p> echo &quot;Setting Vendor and Product ID's&quot;<br>
+                   echo $VID &gt; idVendor<br>
+                   echo $PID &gt; idProduct<br>
+                   echo &quot;OK&quot;</p>
+                  
+                  <p> echo &quot;Setting English strings&quot;<br>
+                   mkdir -p strings/0x409<br>
+                   echo $SERIAL &gt; strings/0x409/serialnumber<br>
+                   echo $MANUF &gt; strings/0x409/manufacturer<br>
+                   echo $PRODUCT &gt; strings/0x409/product<br>
+                   echo &quot;OK&quot;</p>
+                  
+                  <p> echo &quot;Creating Config&quot;<br>
+                   mkdir configs/c.1<br>
+                   mkdir configs/c.1/strings/0x409</p>
+                  
+                  <p> echo &quot;Creating functions...&quot;</p>
+                  
+                  <p> create_uvc configs/c.1 uvc.0</p>
+                  
+                  <p> echo &quot;OK&quot;</p>
+                  
+                  <p> echo &quot;Binding USB Device Controller&quot;<br>
+                   echo $UDC &gt; UDC<br>
+                   echo &quot;OK&quot;<br>
+                  fi</p>
+                  
+                  <p># Run uvc-gadget. The -c flag sets libcamera as a source, arg 0 selects<br>
+                  # the first available camera on the system. All cameras will be listed,<br>
+                  # you can re-run with -c n to select camera n or -c ID to select via<br>
+                  # the camera ID.<br>
+                  uvc-gadget -c 0 uvc.0</p>
             </div>
           </div>
         </main>
