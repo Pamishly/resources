@@ -24,10 +24,10 @@
             <br>
             <br>
             <br>
-            <p>This tutorial assumes you know how to SSH into the pi</p>
+            <p>This tutorial assumes you know how to SSH into the Pi</p>
             <br>
-            <p>First, you have to install Raspberry Pi OS Lite 64-bit on an sd card for the pi</p>
-            <p>Then, plug your camera module in to the ribbin cable port and the SD card into the pi</p>
+            <p>First, you have to install Raspberry Pi OS Lite 64-bit on an sd card for the Pi</p>
+            <p>Then, plug your camera module in to the ribbin cable port and the SD card into the Pi</p>
             <p>Let it boot for a minute, it will take a little longer for the first boot</p>
             <p>Then, SSH into the Pi</p>
             <br>
@@ -46,6 +46,7 @@
               <p><span class = purp>$</span><span class = orange> sudo apt install git </span><span class = white>meson libcamera-dev libjpeg-dev</span></p>
             </div>
             <p>You may have to press <span class = white>y</span> to continue</p>
+            <p>Then, continue running these commands</p>
             <div class = codeblock>
               <p><span class = purp>$</span><span class = orange> git</span><span class = white> clone https://gitlab.freedesktop.org/camera/uvc-gadget.git</span></p>
               <p><span class = purp>$ cd </span><span class - white>uvc-gadget</span></p>
@@ -241,6 +242,7 @@
                   <p>[Unit]</p>
                   <p>Description=UVC Gadget Setup Service</p>
                   <p>After=sys-kernel-config.mount</p>
+                  <p>Requires=sys-kernel-config.mount</p>
                   <br>
                   <p>[Service]</p>
                   <p>Type=oneshot</p>
@@ -256,9 +258,9 @@
                   <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl enable uvc-gadget.service</span></p>
                   <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl start uvc-gadget.service</span></p>
             </div>
-            <p>If you get an error use <span class = codeblock class = white>systemctl status uvc-gadget.service</span> to check the error</p>
-            <p>Then shutdown the pi with <span class = codeblock class = orange>sudo <span class = white>shutdown now</span></span></p>
-            <p>Then plug the pi into your computer, make sure that the micro usb is plugged into the Pi data port and not power. There is text on the Pi to indicate this.</p>
+            <p>If you get an error use <span class = codespan class = white>systemctl status uvc-gadget.service</span> to check the error</p>
+            <p>Then shutdown the Pi with <span class = codespan class = orange>sudo <span class = white>shutdown now</span></span></p>
+            <p>Then plug the Pi into your computer, make sure that the micro usb is plugged into the Pi data port and not power. There is text on the Pi to indicate this.</p>
             <p>There you have it, a working webcam!</p>
           </div>
         </main>
