@@ -57,7 +57,7 @@
               <p><span class = purp>$</span><span class = orange> sudo nano</span><span class = white> ~/.rpi-uvc-gadget.sh</span></p>
             </div>
             <p>Then copy and paste the following into the text editor</p>
-            <div class = codeblock class = white>
+            <div class = codeblock>
                   <p>#!/bin/bash</p>
 
                   <p># Variables we need to make things easier later on.</p>
@@ -238,7 +238,7 @@
                   <p><span class = purp>$</span><span class = orange> sudo nano</span><span class = white> /etc/systemd/system/uvc-gadget.service</span></p>
             </div>
             <p>Once in the text editor, enter the following text</p>
-            <div class = codeblock class = white>
+            <div class = codeblock>
                   <p>[Unit]</p>
                   <p>Description=UVC Gadget Setup Service</p>
                   <p>After=sys-kernel-config.mount</p>
@@ -260,7 +260,7 @@
             </div>
             <p>If you get an error use the following to check the error</p>
             <div class = codeblock>
-                  <p class = white>systemctl status uvc-gadget.service</p>
+                  <p>systemctl status uvc-gadget.service</p>
             </div>
             <p>Then shutdown the Pi with this one</p>
             <div class = codeblock>
