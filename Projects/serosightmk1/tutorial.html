@@ -226,6 +226,37 @@
                   # the camera ID.<br>
                   uvc-gadget -c 0 uvc.0</p>
             </div>
+            <p>Then press <span class = white>ctrl + x</span> then <span class = white>y</span> and then <span class = white>enter</span></p>
+            <p>Then run the following lines</p>
+            <div class = codeblock>
+                  <p><span class = purp>$</span><span class = orange> sudo chmod</span><span class = white> +x ~/.rpi-uvc-gadget.sh</span></p>
+                  <p><span class = purp>$</span><span class = orange> sudo mv</span><span class = white> ~/.rpi-uvc-gadget.sh /usr/local/bin/rpi-uvc-gadget.sh</span></p>
+                  <p><span class = purp>$</span><span class = orange> sudo nano</span><span class = white> /etc/systemd/system/uvc-gadget.service</span></p>
+            </div>
+            <p>Once in the text editor, enter the following text</p>
+            <div class = codeblock class = white>
+                  <p>[Unit]</p>
+                  <p>Description=UVC Gadget Setup Service</p>
+                  <p>After=sys-kernel-config.mount</p>
+                  <br>
+                  <p>[Service]</p>
+                  <p>Type=oneshot</p>
+                  <p>RemainAfterExit=yes</p>
+                  <p>ExecStart=/usr/local/bin/rpi-uvc-gadget.sh</p>
+                  <br>
+                  <p>[Install]</p>
+                  <p>WantedBy=multi-user.target</p>
+            </div>
+            <p>Then run these 3 lines to check if it works</p>
+            <div class = codeblock>
+                  <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl daemon-reload</span></p>
+                  <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl enable uvc-gadget.service</span></p>
+                  <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl start uvc-gadget.service</span></p>
+            </div>
+            <p>If you get an error use <span class = codeblock class = white>systemctl status uvc-gadget.service</span> to check the error</p>
+            <p>Then shutdown the pi with <span class = codeblock class = orange>sudo <span class = white>shutdown now</span></span></p>
+            <p>Then plug the pi into your computer, make sure that the micro usb is plugged into the Pi data port and not power. There is text on the Pi to indicate this.</p>
+            <p>There you have it, a working webcam!</p>
           </div>
         </main>
     </div>
