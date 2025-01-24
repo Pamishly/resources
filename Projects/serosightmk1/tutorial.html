@@ -258,8 +258,14 @@
                   <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl enable uvc-gadget.service</span></p>
                   <p><span class = purp>$</span><span class = orange> sudo</span><span class = white> systemctl start uvc-gadget.service</span></p>
             </div>
-            <p>If you get an error use <span class = codespan class = white>systemctl status uvc-gadget.service</span> to check the error</p>
-            <p>Then shutdown the Pi with <span class = codespan class = orange>sudo <span class = white>shutdown now</span></span></p>
+            <p>If you get an error use the following to check the error</p>
+            <div class = codeblock class = white>
+                  <p>systemctl status uvc-gadget.service</p>
+            </div>
+            <p>Then shutdown the Pi with this one</p>
+            <div class = codeblock>
+                  <p><span class = orange>sudo </span><span class = white>shutdown now</span></p>
+            </div>
             <p>Then plug the Pi into your computer, make sure that the micro usb is plugged into the Pi data port and not power. There is text on the Pi to indicate this.</p>
             <p>There you have it, a working webcam!</p>
           </div>
