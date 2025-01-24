@@ -313,11 +313,22 @@ iframe[seamless]{
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 15px;
-    color:rgb(255, 89, 0);
 }
-.dollar {
+.oran {
+	color:rgb(255, 89, 0);
+}
+.purp {
     color:rgb(115, 0, 255);
 }
-.cmd {
+.white {
     color: white;
+}
+.pink {
+	color: rgb(255, 136, 255);
+}
+.blue {
+	color: rgb(80, 205, 255);
+}
+.green {
+	color: rgb(0, 255, 106)
 }

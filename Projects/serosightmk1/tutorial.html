@@ -30,12 +30,16 @@
             <br>
             <p>Once in, run these 2 commands</p>
             <div class="codeblock">
-                <p><span class = dollar>$</span> sudo apt <span class = cmd>update</span></p>
-                <p><span class = dollar>$</span> sudo apt <span class = cmd>full-upgrade</span></p>
+                <p><span class = purp>$</span><span class = orange> sudo apt </span><span class = white>update</span></p>
+                <p><span class = purp>$</span><span class = orange> sudo apt </span><span class = white>full-upgrade</span></p>
             </div>
             <p>After that runs, reboot the Pi</p>
             <div class="codeblock">
-                <p><span class = dollar>$</span> sudo <span class = cmd>reboot</span></p>
+                <p><span class = purp>$</span><span class = orange> sudo </span><span class = white>reboot</span></p>
+            </div>
+            <p>Once restarted run the following commands and let them install, you may need to press y on some of them</p>
+            <div class = codeblock>
+              <p><span class = purp>$ echo</span><span class = green> "dtoverlay=dwc2,dr_mode=otg" </span><span class = blue>|</span><span class = orange> sudo tee </span><span class = white>-a /boot/firmware/config.txt</span></p>
             </div>
           </div>
         </main>
