@@ -334,3 +334,8 @@ iframe[seamless]{
 .green {
 	color: rgb(0, 255, 106)
 }
+.youtube {
+	margin-left: 40px;
+	margin-right: 40px;
+	height: 400px;
+}
