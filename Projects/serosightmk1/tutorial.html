@@ -37,10 +37,23 @@
             <div class="codeblock">
                 <p><span class = purp>$</span><span class = orange> sudo </span><span class = white>reboot</span></p>
             </div>
-            <p>Once restarted run the following commands and let them install, you may need to press y on some of them</p>
+            <p>Once restarted run the following commands and let them install</p>
             <div class = codeblock>
               <p><span class = purp>$ echo</span><span class = green> "dtoverlay=dwc2,dr_mode=otg" </span><span class = blue>|</span><span class = orange> sudo tee </span><span class = white>-a /boot/firmware/config.txt</span></p>
+              <p><span class = purp>$</span><span class = orange> sudo apt install git </span><span class = white>meson libcamera-dev libjpeg-dev</span></p>
             </div>
+            <p>You may have to press <span class = white>y</span> to continue</p>
+            <div class = codeblock>
+              <p><span class = purp>$</span><span class = orange> git</span><span class = white> clone https://gitlab.freedesktop.org/camera/uvc-gadget.git</span></p>
+              <p><span class = purp>$ cd </span><span class - white>uvc-gadget</span></p>
+              <p><span class = purp>$</span><span class = orange> make </span><span class = white>uvc-gadget</span></p>
+              <p><span class = purp>$ cd</span><span class = white>build</span></p>
+              <p><span class = purp>$</span><span class = orange> sudo </span><span class = white>meson </span><span class = orange>install</span></p>
+              <p><span class = purp>$</span><span class = orange> sudo </span><span class = white>ldconfig</span></p>
+              <p><span class = purp>$</span><span class = orange> sudo nano</span><span class = white> ~/.rpi-uvc-gadget.sh</span></p>
+            </div>
+            <p>Then copy and paste the following into the text editor</p>
+            
           </div>
         </main>
     </div>
