@@ -1,0 +1,352 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: Headers;
+    background-color: #030D22;
+    box-shadow: inset -8px 0 8px -8px #ff2a6d;
+}
+@font-face {
+	font-family: Headers;
+	src: url("Modenine-2OPd.ttf");
+	font-weight: bold;
+}
+.container {
+	width: 100%;
+	height: 100%;
+}
+nav {
+	position: fixed;
+	display: flex;
+	align-items: flex-start;
+	width: 12%;
+	height: 100%;
+	background-color: #111;
+}
+main {
+	position: fixed;
+	right: 0;
+	width: 88.1%;
+	height: 100%;
+	background: url("https://github.com/Pamishly/PamishlysPlayPlace/blob/main/Background.png?raw=true");
+	overflow: auto;
+	padding: 40px;
+    color: cyan;
+}
+@media screen and (max-width: 1800px){
+	nav {
+		width: 17%;
+	}
+	main {
+		width: 83.1%;
+	}
+}
+h1 {
+	font-weight: bold;
+	margin-bottom: 50px;
+	font-size: 55px;
+	text-align: center;
+    color: cyan;
+}
+p {
+	margin-bottom: 20px;
+	line-height: 26px;
+    font-size: 24px;
+    text-align: center;
+    color: cyan;
+}
+li, ul label.title, ul, a {
+	width: 100%;
+	color: #ff2a6d;
+	font-family: Headers;
+	display: block;
+	font-weight: bold;
+}
+ul label {
+	height: 35px;
+    box-shadow: inset -8px 0 8px -8px #ff2a6d;
+}
+ul li{
+	height: 35px;
+	overflow: hidden;
+	transition: all .3s;
+}
+li {
+	display: block;
+	background:#030D22;
+}
+label.title {
+    text-align: left;
+	font-size: 18px;
+	background:#030D22;
+	padding: 10px 15px;
+	cursor: pointer;
+    transition: all .25s;
+    overflow: hidden;
+}
+.sidebutton{
+	font-size: 16px;
+	text-decoration: none;
+	color: #722276;
+	display: block;
+	padding: 10px 25px;
+	transition: all .25s;
+    box-shadow: inset -8px 0 8px -8px #ff2a6d;
+	font-family: Headers;
+}
+.sidebutton:hover {
+    box-shadow: inset -15px 0 8px -8px #ff2a6d;
+	text-shadow: 0px 0px 10px #ff2a6d;
+	background: #0A2F66;
+	color: #FF23BC;
+}
+label:hover {
+	text-shadow: 0px 0px 10px #ff2a6d;
+	background: #0A2F66;
+    box-shadow: inset -15px 0 8px -8px #ff2a6d;
+}
+input[type="radio"] {
+	display: none;
+}
+.sitename{
+	height:60px;
+}
+.sitename label {
+	height: 60px;
+	padding: 5px 0px;
+}
+.sitename img{
+	float:left;
+	padding: 0px 0px;
+}
+.sitename p{
+	text-align: left;
+	font-size: 18px;
+	padding: 10px 25px;
+	margin-top: 10px;
+	cursor: pointer;
+	width: 100%;
+	color: #ff2a6d;
+	font-family: Headers;
+	display: block;
+	font-weight: bold;
+}
+#ppp:checked + li {
+	height: 0px;
+}
+#projects:checked + li {
+    height: 70px;
+}
+i {
+	margin-right: 12px;
+}
+@media screen and (max-width: 600px){
+	nav {
+		width: 100%;
+		position: relative;
+	}
+	main {
+		width: 100%;
+		position: relative;
+	}
+}
+.card{
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 350px;
+    height: 550px;
+    border: solid cyan;
+    text-align: center;
+    margin: 15px;
+	text-decoration: none;
+	font-weight: unset;
+	font-family: monospace;
+	color: cyan;
+}
+.cardcontainer{
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: center;
+    width:75%;
+    margin-left: 12.5%;
+}
+.card img{
+    width: auto;
+    align-content: flex-start;
+    justify-content: center;
+}
+.card p{
+    padding: 15px;
+    align-content: center;
+    justify-content: center;
+	margin-bottom: 20px;
+	line-height: 26px;
+    font-size: 24px;
+    text-align: center;
+    color: cyan;
+}
+.card h3{
+	font-size: 24px;
+	font-family: Headers;
+}
+.card:hover{
+	background:#00aeff2c;
+}
+iframe{
+	width:100%;
+	height:100%;
+}
+iframe[seamless]{
+    background-color: transparent;
+    border: 0px none transparent;
+    padding: 0px;
+    overflow: hidden;
+}
+.button{
+	position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 150px;
+    height: 70px;
+    border: solid cyan;
+    text-align: center;
+    margin: 15px;
+	font-weight: unset;
+	font-family: monospace;
+	color: cyan;
+    left: 50%;
+    transform: translate(-61%,65%);
+	border-radius: 15px;
+}
+.button:hover {
+    background: darkcyan;
+}
+.button p{
+	padding-top: 17px;
+}
+.information{
+	display: flex;
+	flex-flow: column nowrap;
+}
+.information p {
+	margin-bottom: 20px;
+	line-height: 26px;
+    font-size: 24px;
+	justify-content: center;
+    color: cyan;
+}
+.information img {
+	border: cyan 5px solid;
+	align-self: center;
+	width: 600px;
+	border-radius: 15px;
+}
+@media screen and (max-width: 800px) {
+	.information img {
+	  width: 500px;
+	}
+	.information h1{
+		font-size: 28px;
+	}
+	.card p{
+		padding: 0%;
+		font-size: 9px;
+		line-height: 11px;
+	  }
+	  .card h3{
+		  font-size: 12px;
+	   }
+	  .card {
+		  width: 160px;
+		  height: 200px;
+		  margin: 2px;
+	  }
+	  .cardcontainer{
+		width:100%;
+		margin-left: 0%;
+	  }
+	  h1 {
+		  font-size: 16px;
+		  line-height: 18px;
+		  margin-bottom: 5px;
+	  }
+	  p	{
+		  font-size: 10px;
+		  line-height: 12px;
+	  }
+	  main{
+		height: 100vh;
+	  }
+  }
+  @media screen and (max-width: 500px) {
+	.information img {
+	  width: 300px;
+	}
+  }
+.information h1 {
+	justify-content: center;
+}
+.main {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.main::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+.scrapped {
+	color: #ff2a6d;
+}
+.functional {
+	color: rgb(0, 255, 106);
+}
+.codeblock {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 17px;
+	font-family: monospace;
+}
+.codeblock p {
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+	color:white;
+}
+.orange {
+	color:rgb(255, 89, 0);
+}
+.purp {
+    color:rgb(115, 0, 255);
+}
+.white {
+    color: white;
+}
+.pink {
+	color: rgb(255, 136, 255);
+}
+.blue {
+	color: rgb(80, 205, 255);
+}
+.green {
+	color: rgb(0, 255, 106)
+}
+.youtube {
+	margin-left: 30%;
+	margin-right: 30%;
+	height: 400px;
+	width: 40%;
+	border-radius: 15px;
+}
+footer {
+	height: 100px;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+  }
