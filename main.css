@@ -5,8 +5,8 @@
 }
 body {
 	font-family: Headers;
-    background-color: #030D22;
-    box-shadow: inset -8px 0 8px -8px #ff2a6d;
+    background-color: #222831;
+    box-shadow: inset -8px 0 8px -8px #76ABAE;
 }
 @font-face {
 	font-family: Headers;
@@ -23,17 +23,17 @@ nav {
 	align-items: flex-start;
 	width: 12%;
 	height: 100%;
-	background-color: #111;
+	background-color: #222831;
 }
 main {
 	position: fixed;
 	right: 0;
 	width: 88.1%;
 	height: 100%;
-	background: url("https://github.com/Pamishly/PamishlysPlayPlace/blob/main/Background.png?raw=true");
+	background: url("background.jpg");
 	overflow: auto;
 	padding: 40px;
-    color: cyan;
+    color: #EEEEEE;
 }
 @media screen and (max-width: 1800px){
 	nav {
@@ -48,25 +48,25 @@ h1 {
 	margin-bottom: 50px;
 	font-size: 55px;
 	text-align: center;
-    color: cyan;
+    color: #EEEEEE;
 }
 p {
 	margin-bottom: 20px;
 	line-height: 26px;
     font-size: 24px;
     text-align: center;
-    color: cyan;
+    color: #EEEEEE;
 }
 li, ul label.title, ul, a {
 	width: 100%;
-	color: #ff2a6d;
+	color: #76ABAE;
 	font-family: Headers;
 	display: block;
 	font-weight: bold;
 }
 ul label {
 	height: 35px;
-    box-shadow: inset -8px 0 8px -8px #ff2a6d;
+    box-shadow: inset -8px 0 8px -8px #76ABAE;
 }
 ul li{
 	height: 35px;
@@ -75,12 +75,12 @@ ul li{
 }
 li {
 	display: block;
-	background:#030D22;
+	background:#222831;
 }
 label.title {
     text-align: left;
 	font-size: 18px;
-	background:#030D22;
+	background:#222831;
 	padding: 10px 15px;
 	cursor: pointer;
     transition: all .25s;
@@ -89,23 +89,23 @@ label.title {
 .sidebutton{
 	font-size: 16px;
 	text-decoration: none;
-	color: #722276;
+	color: #a5bfc0;
 	display: block;
 	padding: 10px 25px;
 	transition: all .25s;
-    box-shadow: inset -8px 0 8px -8px #ff2a6d;
+    box-shadow: inset -8px 0 8px -8px #76ABAE;
 	font-family: Headers;
 }
 .sidebutton:hover {
-    box-shadow: inset -15px 0 8px -8px #ff2a6d;
-	text-shadow: 0px 0px 10px #ff2a6d;
+    box-shadow: inset -15px 0 8px -8px #76ABAE;
+	text-shadow: 0px 0px 10px #76ABAE;
 	background: #0A2F66;
-	color: #FF23BC;
+	color: #76ABAE;
 }
 label:hover {
-	text-shadow: 0px 0px 10px #ff2a6d;
+	text-shadow: 0px 0px 10px #76ABAE;
 	background: #0A2F66;
-    box-shadow: inset -15px 0 8px -8px #ff2a6d;
+    box-shadow: inset -15px 0 8px -8px #76ABAE;
 }
 input[type="radio"] {
 	display: none;
@@ -128,7 +128,7 @@ input[type="radio"] {
 	margin-top: 10px;
 	cursor: pointer;
 	width: 100%;
-	color: #ff2a6d;
+	color: #76ABAE;
 	font-family: Headers;
 	display: block;
 	font-weight: bold;
@@ -158,13 +158,13 @@ i {
     flex-flow: column nowrap;
     width: 350px;
     height: 550px;
-    border: solid cyan;
+    border: solid #EEEEEE;
     text-align: center;
     margin: 15px;
 	text-decoration: none;
 	font-weight: unset;
 	font-family: monospace;
-	color: cyan;
+	color: #EEEEEE;
 }
 .cardcontainer{
     display: flex;
@@ -187,7 +187,7 @@ i {
 	line-height: 26px;
     font-size: 24px;
     text-align: center;
-    color: cyan;
+    color: #EEEEEE;
 }
 .card h3{
 	font-size: 24px;
@@ -212,12 +212,12 @@ iframe[seamless]{
     flex-flow: column nowrap;
     width: 150px;
     height: 70px;
-    border: solid cyan;
+    border: solid #EEEEEE;
     text-align: center;
     margin: 15px;
 	font-weight: unset;
 	font-family: monospace;
-	color: cyan;
+	color: #EEEEEE;
     left: 50%;
     transform: translate(-61%,65%);
 	border-radius: 15px;
@@ -237,10 +237,10 @@ iframe[seamless]{
 	line-height: 26px;
     font-size: 24px;
 	justify-content: center;
-    color: cyan;
+    color: #EEEEEE;
 }
 .information img {
-	border: cyan 5px solid;
+	border: #EEEEEE 5px solid;
 	align-self: center;
 	width: 600px;
 	border-radius: 15px;
@@ -298,7 +298,7 @@ iframe[seamless]{
     display: none;  /* Safari and Chrome */
 }
 .scrapped {
-	color: #ff2a6d;
+	color: #76ABAE;
 }
 .functional {
 	color: rgb(0, 255, 106);
