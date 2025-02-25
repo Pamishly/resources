@@ -4,8 +4,8 @@
 	box-sizing: border-box;
 }
 @keyframes start {
-	from {color: rgba(0, 0, 0, 0);}
-	to {color: rgb(255, 255, 255);}
+	from {color: rgba(0, 0, 0, 0); text-shadow:1px 1px 10px #000000, 1px 1px 10px #000000;}
+	to {color: rgb(255, 255, 255); text-shadow:1px 1px 10px #fff, 1px 1px 10px #ccc;}
   }
 body {
 	font-family: Headers;
