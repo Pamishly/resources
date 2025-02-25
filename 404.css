@@ -36,7 +36,7 @@ h1 {
 	margin-bottom: 50px;
 	font-size: 55px;
 	animation-name: start;
-  	animation-duration: 10s;
+  	animation-duration: 5s;
 	animation-fill-mode: forwards;
 }
 p {
@@ -44,14 +44,14 @@ p {
 	line-height: 26px;
     font-size: 24px;
 	animation-name: start;
-  	animation-duration: 10s;
-	animation-delay: 5s;
+  	animation-duration: 5s;
+	animation-delay: 3s;
 	animation-fill-mode: forwards;
 }
 a {
 	color: black;
 	animation-name: start;
-	animation-duration: 10s;
-  	animation-delay: 7s;
+	animation-duration: 5s;
+  	animation-delay: 4s;
   	animation-fill-mode: forwards;
 }
