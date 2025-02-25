@@ -265,6 +265,11 @@ iframe[seamless]{
 	background-color: #0000009a;
 	border-radius: 15px;
 }
+@media screen and (max-width: 1297.25px) {
+.footer {
+	height:120px;
+}
+}
 @media screen and (max-width: 800px) {
 	.information img {
 		width: 500px;
