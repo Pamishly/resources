@@ -37,7 +37,8 @@ h1 {
 	font-size: 55px;
 	animation-name: start;
   	animation-duration: 10s;
-	animation-fill-mode: forwards;}
+	animation-fill-mode: forwards;
+}
 p {
 	margin-bottom: 20px;
 	line-height: 26px;
