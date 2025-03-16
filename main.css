@@ -37,11 +37,10 @@ p {
     color: #EEEEEE;
 }
 .youtube {
-	margin-left: 30%;
-	margin-right: 30%;
 	height: 400px;
 	width: 40%;
 	border-radius: 15px;
+	margin:auto;
 }
 iframe{
 	width:100%;
