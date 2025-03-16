@@ -40,11 +40,11 @@ p {
 	height: 400px;
 	width: 40%;
 	border-radius: 15px;
-	margin:auto;
 }
 iframe{
 	width:100%;
 	height:100%;
+	margin: auto;
 }
 iframe[seamless]{
     background-color: transparent;
